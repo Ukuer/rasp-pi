@@ -38,7 +38,7 @@ AStack::~AStack(){
 
 void AStack::Push(ElementType item){
     if (top == MAXSIZE-1){
-        cout << "Stack is full" << endl;
+		printf("Stack is Full");
         return ;
     }
     Data[++ top] = item;
@@ -55,7 +55,7 @@ bool AStack::Empty(){
 }
 
 bool AStack::Full(){
-	if (top == size-1)
+	if (top >= size-1)
 		return true;
 	return false;
 }

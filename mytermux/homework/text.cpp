@@ -20,7 +20,7 @@ bool mypop(Stack S, int a[], int n){
 	while (n--){
 		if (S.Empty())
 			return false;
-		cout << S.Pop();
+		printf(" %d ", S.Pop());
 	}
 	return true;
 }
@@ -30,8 +30,7 @@ void pop_all(Stack S, int a[], int index);
 
 void push_all(Stack S, int a[], int index){
 	for (int i=1; i<=4; ++i){
-		cout << endl;
-		if (index>=4)	break;
+		if (index>=4)	return;
 		int this_index = index;
 		if (!mypush(S, a, this_index, i))
 			break;
@@ -42,6 +41,8 @@ void push_all(Stack S, int a[], int index){
 
 void pop_all(Stack S, int a[], int index){
 	for (int i=1; i<=4; ++i){
+		if (index>=4 && S.Empty())
+				return;
 		if (!mypop(S, a, i))
 			break;
 		push_all(S, a, index);
