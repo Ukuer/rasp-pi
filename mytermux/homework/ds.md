@@ -12,13 +12,106 @@
 
 （2）
 
+```c++
+
+```
+
 
 
 ##### 3.5 设计出链栈的各个基本问题求解的算法，并分析其时间复杂度。
 
+```c++
+struct LNode {
+    ElementType Data;
+    LNode *next;
+};
+class LStack {
+    LNode *Head;
+    LNode *top;
+public:
+    LStack();
+    ~LStack();
+    void Push (ElementType item);
+    ElementType Pop();
+    bool Empty();
+};
+LStack::LStack(){
+    Head = new LNode;
+    Head->next = nullptr;
+    top = Head;
+}
+LStack::~LStack(){
+    LNode *back, *fore;
+    back = Head; 
+    while (back != nullptr){
+        fore = back->next;
+        delete back;
+        back = fore;
+    }
+}
+void LStack::Push(ElementType item){
+    LNode *New = new LNode;
+    New->Data = item;
+    New->next = top->next;
+    top->next = New;
+}
+ElementType LStack::Pop(){
+    LNode *pNode = top->next;
+    ElementType item = pNode->Data;
+    top->next = pNode->next;
+    delete pNode;
+    return item;    
+}
+bool LStack::Empty(){
+    if (top->next == nullptr)
+        return true;
+    return false;
+}
+```
+
 
 
 ##### 3.8 用一个数组，头指针和元素个数合在一起构成的结构来存储顺序队列，设计算法以实现队列的各运算。
+
+```c++
+const int MAXSIZE 100;
+class Queue{
+		ElementType *head;
+		int sz;
+public:
+		Queue():head{new ElementType[MAXSIZE]},sz=0{ };
+		~Queue(){	delete head;	};
+		void push(ElementType item);
+		ElementType pop();
+		int size(){	return sz;	};
+		bool empty();
+		bool full();
+};
+
+void Queue::push(ElementType item){
+		if (this->full()){
+				printf("queue is full\n");
+				return ;
+		}
+		*(head+sz) = item;
+		++sz;
+};
+ElementType Queue::pop(){
+		if (this->empty()){
+				printf("queue is empty\n");
+				return -1;
+		}
+		--sz;
+		ElementType res = *(head+sz);
+		return sz;
+}
+bool Queue::empty(){
+		return sz==0;
+}
+bool Queue::full(){
+		return sz==MAXSIZE;
+}
+```
 
 
 
@@ -27,3 +120,4 @@
 
 
 ##### 3.11 如果采用带尾指针的单循环链表作为队列的存储结构，设计算法以实现队列的各运算。
+
