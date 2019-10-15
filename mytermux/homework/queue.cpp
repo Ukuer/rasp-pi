@@ -2,14 +2,15 @@
 const int MAXSIZE 100;
 typedef int ElementType;
 class Queue{
+		ElementType data[MAXSIZE];
 		ElementType *head;
 		int sz;
 public:
-		Queue():head{new ElementType[MAXSIZE]},sz=0{ };
-		~Queue(){	delete head;	};
+		Queue():head{data},sz=0{ };
+		~Queue(){	};
 		void push(ElementType item);
 		ElementType pop();
-		int size(){	return sz;	};
+		int size(){	return (data+sz)-head;	};
 		bool empty();
 		bool full();
 };
@@ -19,7 +20,7 @@ void Queue::push(ElementType item){
 				printf("queue is full\n");
 				return ;
 		}
-		*(head+sz) = item;
+		*(data+sz) = item;
 		++sz;
 };
 ElementType Queue::pop(){
@@ -28,8 +29,8 @@ ElementType Queue::pop(){
 				return -1;
 		}
 		--sz;
-		ElementType res = *(head+sz);
-		return sz;
+		ElementType res = *(head++);
+		return res;
 }
 bool Queue::empty(){
 		return sz==0;
