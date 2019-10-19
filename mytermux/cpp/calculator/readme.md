@@ -2,37 +2,41 @@
 
 program:
 
-		end
+\		end
 
-		expr_list end
+\		expr_list end
 
 expr\_list:
 		
-		expression print
+\		expression print
 
-		expression print expr_list
+\		expression print expr_list
 
 expression:
 
-		expression + term
+\		expression + term
 
-		expression - term
+\		expression - term
 
-		term
+\		term
 
 term:   
 
-		term / primary 
+\		term / primary 
 
-		term * primary
+\		term * primary
 
-		primary
+\		primary
 
 primary:
 
-		number
-		name
-		name = expression
-		- primary
-		(expression)
+\		number
+
+\		name
+
+\		name = expression
+
+\		- primary
+
+\		(expression)
 

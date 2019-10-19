@@ -154,7 +154,7 @@ void calculate(){
 		for (;;){
 				ts.get();
 				if (ts.current().kind == Kind::end) break;
-				if (ts.current().kind == Kind::print) break;
+				if (ts.current().kind == Kind::print) continue;
 				cout << expr(false) << '\n';
 		}
 }
