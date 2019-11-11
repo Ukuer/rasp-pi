@@ -12,20 +12,26 @@ int getnumber(char s){
 
 	if (s>='0' && s<='9')
 		return s - '0';
-	else 
+	else if (s>='A' && s<='F')
 		return s - 'A' + 10;
+	else if (s>='a' && s<='f')
+		return s - 'a' + 10;
+	else {
+		printf("Error Input\n");
+		return 0;
+	}
 }
 
-void swich(char s, char *t){
+void change(char s, char *t){
 
 	int n = getnumber(s);
 	int i=3;
 	for (i=3; i >= 0; ++i){
 		if (n%2 == 1)
-			*(t+i) = 1;
+			*(t+i) = '1';
 		else 
-			*(t+i) = 0;
-		n /= 2;
+			*(t+i) = '0';
+		n = (n-(n%2))/2;
 	}
 }
 
@@ -36,23 +42,23 @@ int main(void){
 	scanf("%s", s);
 
 	char *ps = s,*pt = t;
-	while (*ps != 0){
-		switch(*ps, *pt);
+	while (*ps){
+		printf("a");
+		change(*ps, pt);
+		printf("b");
 		++ ps;
-		++ pt;
+		pt += 4;
 	}
-	pt = NULL;
+	*pt = 0;
+	printf("c");
+
 
 	printf("The result:");
 	pt = t;
-	while (*pt != NULL){
-		int i=0;
-		for (i=0; i<4; ++i)
-			printf("%c ", *(*t+i));
+	while (pt != 0){
+		printf("%c ", *pt);
 		++ pt;
 	}
 
 	return 0;
 }
-
-
