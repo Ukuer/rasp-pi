@@ -8,8 +8,8 @@
 class HFUT{
 
 	private static HFUT instance = null;
-	private String name = "HFUT";
-	private String history = "1945";
+	private static String name = "HFUT";
+	private static String history = "1945";
 
 	private HFUT(){ };
 
@@ -31,11 +31,65 @@ class HFUT{
 
 class Student{
 
+	private HFUT school = HFUT.getInstance();
+	public HFUT getSchool(){
 
+		return school;
+	}
+}
 
+class Teacher{
+
+	private HFUT school = HFUT.getInstance();
+	public HFUT getSchool(){
+
+		return school;
+	}
+}
 
 
 public class Text1{
 
-	public static void main(String [] args){
+	public static void main(String[] args){
+		Student s1 = new Student();
+		Student s2 = new Student();
+		Teacher t1 = new Teacher();
+		Teacher t2 = new Teacher();
+
+		// compare between students
+		if (s1.getSchool() == s2.getSchool())
+			System.out.println("student1's school == student2's school");
+		else 
+			System.out.println("student1's school != student2's school");
+
+		if (s1.getSchool().equals(s2.getSchool()))
+			System.out.println("student1's school equal student2's school");
+		else 
+			System.out.println("student1's school not euqal student2's school");
+
+		// compare between teachers
+		if (t1.getSchool() == t2.getSchool())
+			System.out.println("teacher1's school == teacher2's school");
+		else 
+			System.out.println("teacher1's school != teacher2's school");
+
+		if (t1.getSchool().equals(t2.getSchool()))
+			System.out.println("teacher1's school equal teacher2's school");
+		else 
+			System.out.println("teacher1's school not equal teacher2's school");
+
+		// compare between teacher and student
+		if (t1.getSchool() == s1.getSchool())
+			System.out.println("teacher's school == student's school");
+		else 
+			System.out.println("teacher's school != student's school");
+
+		if (t1.getSchool().equals(s1.getSchool()))
+			System.out.println("teacher's school equal student's school");
+		else 
+			System.out.println("teacher's school not euqal student's school");
+
+	}
+
+}
 
