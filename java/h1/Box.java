@@ -11,7 +11,7 @@ class Box{
 	private int heigth;
 
 	void setBox(int l, int w, int h){
-		lenght = l;
+		length = l;
 		width = w;
 		heigth = h;
 	}
