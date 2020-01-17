@@ -1,6 +1,7 @@
 // make a "ls" command
 
 #include "apue.h"
+#include "ferr.c"
 #include <dirent.h>
 
 int main(int argc, char *argv[]){
