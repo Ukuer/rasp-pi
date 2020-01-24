@@ -1,0 +1,22 @@
+Tmux Command Commands
+
+Session:
+tmux new -s <name>			// to create a new session
+tmux attach -t <name>		// to attach a session
+tmux detach					// to exit
+ctrl+b d
+tmux kill-session -t <name>	// to kill a session
+tmux switch -t <name>		// switch to the another
+tmux rename-session <old> <new>
+ctrl+b $
+
+Winddow
+tmux split-windoww			// split to the up and down
+ctrl+b "
+tmux spplit-window -h		// split to the left and downn
+ctrl+b %
+ctrl+b up,down,left,right
+ctrl+b x					// close window
+ctrl+b z					// zoom out 
+ctrl+b t					// show time, enter to return
+ctrl+a ?					// for help
