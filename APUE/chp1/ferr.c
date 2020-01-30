@@ -21,6 +21,7 @@ err_ret(const char *fmt, ...){
  * Fatal error related to a system call
  * Print a message and terminate
  */
+void
 err_sys(const char *fmt, ...){
 
 	va_list		ap;
