@@ -1,0 +1,143 @@
+%-*- coding: UTF-8 -*-
+%plasma.tex
+\documentclass[UTF8]{ctexart}
+\usepackage{bm}
+% 导言区
+\title{等离子物理入门总结}
+\author{金建龙}
+\date{\today}
+%\newtheorem{thm}{定理}
+%\bibliography{plain}
+
+\begin{document}
+\maketitle
+\section{第一章}
+\subsection{基本概念}
+等离子体，作为物质的第四态，由电子，离子及中性粒子组成。如果把气体加热到一定的温度，气体分子会部分电离或完全电离，当带电粒子的比例超过一定的程度时，电离气体会凸显出明显的电磁性质，其中正离子和电子数目相等，因而被叫做等离子体(plasma).
+
+等离子体，在宏观上呈准中性，且具有集体效应。\textbf{准中性}，是指等离子体中正负离子数目基本相等，系统在宏观上呈中性，小尺度上呈电磁性。\textbf{集体效应}，指等离子体中带电粒子间相互作用是长程库仑力，体系内带电粒子均同时持续地参与作用，任何带电粒子的运动状态改变都会影响到其他带电粒子，这与中性气体中只有粒子碰撞才有相互作用的情况大不相同。等离子体中通常有电磁场的作用，因而呈现出集体效应。
+
+等粒子物理学要研究等离子体中的粒子运动，流体流动，等离子体的波动和加热，等离子体的平衡和稳定性等基本过程。
+
+\subsection{研究等离子体方法}
+\textbf{粒子描述}
+考察粒子在电磁场中的运动，分析粒子的受力情况，采用牛顿方程描述：
+$$ \frac{m_\alpha d \hm{v}_\alpha}{dt}  = q_\alpha (E_\alpha \ +\hm{v}+\alpha \times \hm{B}_\alpha) $$
+结合相应的初始条件来计算。如果能够计算出每个带点粒子的运动情况，那么可以采用麦克斯韦方程组来求出带电粒子的自生电场。（我感觉这种处理方法太理想化，那么多的粒子及作用量，想要进行单个的研究几乎是不可能的。）
+
+\textbf{动理学描述}为减少自由度，采用粒子分布函数来描述，粒子分布函数由玻尔兹曼方程给出：
+$$ \frac{\partial f_\alpha}{\partial t} + \bm{v} \cdot \nabla f_\alpha + \frac{q_\alpha}{m_\alpha}(\bm E_\alpha + \bm v_\alpha \times \bm B_\alpha) \cdot \nabla _v f_\alpha = \sum_\beta C_{\alpha \beta}(f_\alpha, f_\beta) $$
+
+\textbf{磁流体力学描述} 当运动的特征长度远大于带电粒子的平均自由程，特征时间远大于粒子的平均碰撞时间，等离子体可以看作磁流体，可以采用密度，速度和温度等来描述等离子体的运动。
+
+\subsection{基本参量}
+
+\textbf{粒子数密度\ n}，等离子体粒子数密度满足准中性条件
+$$ n_e = \sum Z_\alpha n_\alpha $$
+其中，$n_e$为电子数密度，$n_\alpha$为 $\alpha$类粒子数密度，$Z_\alpha$为该类粒子所带基本电荷数。
+
+\textbf{温度\ T}，粒子动能可近似的表示为 \ $E_k \sim kT$.
+
+\textbf{例子平均间距\ d}，$d = n^{-1/3}$.
+
+\textbf{朗道长度\  $\lambda_L$},\   $\lambda _L = 1.67 \times 10^{-5} Z_\alpha Z_\beta T^{-1} $.
+
+\textbf{经典条件}，即粒子的德布罗意波长要远小于粒子的平均间距$d$:
+$$ \lambda \sim \frac h {\sqrt{mkT}} << d \Rightarrow n^{1/3} T^{-1/2} << 1$$
+此时可以忽略等离子体的量子效应。
+
+\textbf{稀薄条件}，当等离子体的热运动远大于粒子间平均的库伦势时，可以把等离子体当作气体来处理，即满足：
+$$ \bar{E}_p << E_k\ \ \Rightarrow \ \ n\lambda^3_L << 1$$
+
+\subsection{德拜屏蔽效应}
+\textbf{德拜长度\ $\lambda_D$}，当离子均匀不动时，电子的德拜半径为：
+$$\lambda_D = 7430\bigg(\frac{T_e[eV]}{n_e[m^{-3}}\bigg)^{1/2}$$
+类似的，离子的德拜半径：
+$$\lambda_D = 69\bigg(\frac{T_i[K]}{n_i[m^{-3}}\bigg)^{1/2}$$
+
+\textbf{德拜势}
+$$ \varphi (r) = \frac{q}{4 \pi \epsilon _0 r} exp\big( - \frac r{\lambda_D} \big)$$
+
+由此可见，在德拜屏蔽效应中，德拜势按指数方式下降。德拜半径的物理意义在于，它表明了等离子体中任意一带电粒子产生的静电势，基本上被限制在德拜半径内。因此，考虑一个带电粒子与等离子体相互作用时，只需考虑该粒子德拜半径的以内的粒子的相互作用就可以了。在空间尺度小于 $\lambda_D$ 的区域内，正负电荷数目不相等，这表明德拜球中是偏离电中性的。由此，等离子体的准中性条件可表述为，等离子体的特征长度远大于德拜半径，$L >> \lambda_D$.
+
+\subsection{集体振荡}
+在系统外的电场的作用下，等离子体中会产生振荡现象，电子，离子的振荡频率分别可表示为：
+$$\omega_{pe} = \big( \frac{n_e e^2}{\epsilon_0 m_e} \big) ^ {1/2},\ \ \ \omega_{pi} = \big( \frac{n_i Z_i^2 e^2}{\epsilon_0 m_i} \big) ^ {1/2}  $$
+由于 $m_i >> m_e$，所以有 $\omega_{pe} >> \omega_{pi}$. 所以在一般情况下，集体的振荡频率可近似为电子的振荡频率，$\omega_p = \omega_{pe}$. 德拜长度与振荡频率都是等离子体集体行为的特征参量，有如下关系：
+$$ \lambda_D = \frac{v_{th}}{\omega_{pe}}$$
+定义响应时间为，电子以平均特征速度（热速度）走过德拜长度：
+$$ t_D = \frac{\lambda_D}{v_{th}} = \frac 1{\omega_{pe}}$$
+即当等离子体在某处发生扰动，那么它将在$\omega_{pe}^{-1}$的时间尺度内作出响应。也即，等离子体某区域电中性一旦受到破坏，等离子体将在该时间内给予消除。
+
+\section{第二章}
+
+
+\section{第三章}
+\subsection{流体力学}
+\textbf{连续性方程}
+$$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \bm{u}) = 0 $$
+
+\textbf{运动方程}
+$$ \rho \frac{d\bm u}{dt} = \nabla\cdot \bm P + \rho \bm g $$
+
+\textbf{能量方程}
+$$ \rho \frac d{dt} \big( \epsilon + \frac{\bm u^2} 2 \big) = \nabla \cdot (\bm P \cdot \bm u ) + \rho \bm g \cdot \bm u - \nabla \cdot \bm q $$
+
+\subsection{流体力学方程组}
+
+$$ \left\{ \begin{array}{llllllll}
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \bm{u}) = 0
+\\ \rho \frac{d\bm u}{dt} = \nabla\cdot \bm P + \bm J \times \bm B
+\\ \rho \frac d{dt} \big( \epsilon + \frac{\bm u^2} 2 \big) = \nabla \cdot (\bm P \cdot \bm u ) + \bm E \cdot \bm J - \nabla \cdot \bm q
+\\ p = p(\rho,T)
+\\ \nabla \times \bm E = - \frac{\partial \bm B}{\partial t}
+\\ \nabla \times \bm B = \mu_0 \bm J
+\\ \nabla \cdot \bm B = 0
+\\ \bm J = \sigma (\bm E + \bm u \times \bm B)
+\end{array}\right.$$
+
+当磁流体是无粘的，不传热，理想导电的理想流体时，上述方程可简化为
+$$ \left\{ \begin{array}{llllllll}
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \bm{u}) = 0
+\\ \rho \frac{d\bm u}{dt} = -\nabla p + \bm J \times \bm B
+
+\\ p \rho ^{- \gamma} = constant
+\\ \nabla \times \bm E = - \frac{\partial \bm B}{\partial t}
+\\ \nabla \times \bm B = \mu_0 \bm J
+
+\\ \bm E + \bm u \times \bm B = 0
+\end{array}\right.$$
+
+当考虑双成分的磁流体力学时，不同成分之间的碰撞产生了等离子体电阻。有\textbf{广义欧姆定律}:
+$$ \bm J = \sigma \big[ (\bm E + \bm u \times \bm B) - \frac 1{en} \bm J \times \bm B + \frac 1{en} \nabla p_e \big] $$
+
+\subsection{磁扩散与磁冻结}
+磁感应方程有：
+$$ \frac{\partial \bm B}{\partial t} = \nabla \times (\bm u \times \bm B) + \eta_m \nabla ^2 \bm B$$
+其中
+$$ \eta_m = \frac 1{\mu_0 \sigma} $$
+称为\textbf{磁粘滞系数}（或\textbf{磁扩散系数}). 通常可定义磁雷诺数为：
+$$ Rm = \frac {UL} {\eta_m} $$
+
+\textbf{磁扩散效应}，当 $Rm << 1$ 时，或导电体不流动时，磁感应方程可化为：
+$$ \frac{\partial \bm B}{\partial t} = \eta_m \nabla ^2 \bm B $$
+该方程就是\textbf{扩散方程}，它表示，由于电阻效应引起感应电流的衰减，磁场将从强度大的区域向强度小的区域扩散，力求将锐边界两侧的磁场落差“抹平”，这也是$\eta_m$称为磁扩散系数的原因。
+
+\textbf{磁冻结效应}，当$Rm >> 1$，或导电流体的电导率$\sigma \rightarrow \infty$，磁感应方程变为冻结方程：
+$$ \frac{\partial \bm B}{\partial t} = \nabla \times (\bm u \times \bm B)$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
