@@ -6,5 +6,6 @@ all:myhello
 myhello:$(OBJ)
 	$(CC) -o myhello $(OBJ)
 #		$(cc) -o myhello $(OBJ)
+#		email 
 
 
