@@ -1,4 +1,4 @@
-*-- load02.s */
+/*-- load02.s */
 
 /*-- Data section*/
 .data
@@ -34,3 +34,4 @@ main:
 /* Lables needed to access data */
 addr_of_myvar1 : .word myvar1
 addr_of_myvar2 : .word myvar2
+
