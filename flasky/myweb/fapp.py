@@ -9,9 +9,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/honglou')
-def honglou():
-    return render_template('honglou.html')
+#@app.route('/honglou')
+#def honglou():
+#    return render_template('honglou.html')
 
 @app.route('/browser')
 def browser():
@@ -20,11 +20,11 @@ def browser():
 
 @app.route('/pic')
 def pic():
-    return "<img src='/static/images/pands.jpg', alt='losing'>"
+    return "<img src='/static/images/panda.jpg', alt='losing', align='center'>"
 
 @app.route('/hello/<name>')
 def hello(name):
-    return render_template('page.html', name=name)
+    return render_template('hello.html', name=name)
 
 # 设置返回码
 @app.route('/error')
