@@ -8,7 +8,7 @@ message2: .asciz "The factorial of %d is %d\n"
 .text
 
 factorial:
-	str lr, [sp, #-4]!
+	str lr, [sp, #-4]!	/* sub sp, #4 then str lr,sp */
 	str r0, [sp, #-4]!
 
 	cmp r0, #0
